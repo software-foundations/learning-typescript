@@ -17,7 +17,11 @@
 					"name": "TypeScript",
 					"shell_cmd": "\"${project_path}/node_modules/.bin/tsc\" \"${file}\" && node ${file_base_name}.js && rm ${file_base_name}.js",
 				},
-			]
+				{										
+					"name": "ts-node",
+					"shell_cmd": "\"npx\" \"${project_path}/node_modules/ts-node/dist/bin.js\" --files --transpile-only \"${file}\"",
+				}
+			],
 		},
 
 		{
@@ -40,8 +44,22 @@
 			"variants":
 			[
 				{
+					// https://github.com/TypeStrong/ts-node/issues/497
+					// https://www.npmjs.com/package/ts-node#usage
+					"name": "TypeScript - ts-node",
+					"shell_cmd": "\"npx\" \"${project_path}/node_modules/ts-node/dist/bin.js\" --files --transpile-only \"${file}\"",
+				},
+				{
+					"name": "eslint",
+					"shell_cmd": "\"${project_path}node_modules/eslint/bin/eslint.js\" \"${file}\"",
+				},
+				{
 					"name": "TypeScript - Compile, Run, and rm .js",
 					"shell_cmd": "\"${project_path}/node_modules/.bin/tsc\" \"${file}\" && node ${file_base_name}.js && rm ${file_base_name}.js",
+				},
+				{
+					"name": "TypeScript - Compile, and Run",
+					"shell_cmd": "\"${project_path}/node_modules/.bin/tsc\" \"${file}\" && node ${file_base_name}.js",
 				},
 				{
 					"name": "TypeScript - Compile",
@@ -63,25 +81,22 @@
 			],
 			"working_dir": "$file_path",
 		},
+		{
+			"file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+			"name": "Anaconda Python Builder",
+			"selector": "source.python",
+			"shell_cmd": "\"/home/bruno/Documents/dev/numerical-methods-web/venv-numerical-methods/bin/python\" -u \"$file\""
+		},
 	],
 
 
 	"folders":
 	[
 		{
-			"path": "."
+			"path": ".",
 		},
 		{
-			"path": "../clone-coder-javascript/"
-		},
-		{
-			"path": "../clone-javascript-luizomf/"
-		},
-		{
-			"path": "../clone-typescript-luizomf/src/"
-		},
-		{
-			"path": "../learning-javascript/"
+			"path": "../clone-typescript-luizomf/"
 		}
 	],
 }
