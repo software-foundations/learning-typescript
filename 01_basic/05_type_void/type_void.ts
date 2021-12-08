@@ -1,4 +1,5 @@
 function withoutReturn (...args: string[]): void {
+	console.log(typeof args)
 	console.log(args.join(' '))
 }
 
