@@ -20,6 +20,10 @@
 				{										
 					"name": "ts-node",
 					"shell_cmd": "\"npx\" \"${project_path}/node_modules/ts-node/dist/bin.js\" --files --transpile-only \"${file}\"",
+				},
+				{
+					"name": "prettier",
+					"shell_cmd": "prettier \"$file\" > .temp_file.ts && cat .temp_file.ts > \"$file\" && rm .temp_file.ts",					
 				}
 			],
 		},
@@ -76,6 +80,11 @@
 				{
 					"name": "chromium",
 					"shell_cmd": "chromium \"$file\"",
+					"auto_close": true,
+				},
+				{
+					"name": "prettier",
+					"shell_cmd": "prettier \"$file\" > .temp_file.ts && cat .temp_file.ts > \"$file\" && rm .temp_file.ts",
 					"auto_close": true,
 				}
 			],
