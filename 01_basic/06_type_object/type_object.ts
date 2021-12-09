@@ -2,7 +2,7 @@ const myObject: {
 	readonly keyA: string
 	keyB: string
 	keyC?: String
-	[key: string]: unknown
+	[key: string]: unknown // index assignment
 } = {
 	keyA: "Value A",
 	keyB: "value B",
@@ -11,8 +11,8 @@ const myObject: {
 console.log(myObject)
 
 myObject.keyB = 'Another value'
-myObject.keyA = 'New value'
-myObject.keyC = 'New key'
+myObject.keyC = 'New value'
+myObject.keyD = 'New key'
 
 console.log(myObject)
 
