@@ -38,5 +38,8 @@ console.log('-----------------')
 // both works
 // const myReadOnlyArray: ReadonlyArray<string> = [...'Bruno Conde'.split(' ')]
 const myReadOnlyArray: ReadonlyArray<string> = ['Bruno', 'Conde']
-
 console.log(myReadOnlyArray)
+
+// works the same way of above
+const array1: readonly string[] = ['Conde', 'Bruno'];
+console.log(array1)
