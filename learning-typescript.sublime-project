@@ -19,7 +19,7 @@
 				},
 				{										
 					"name": "ts-node",
-					"shell_cmd": "\"npx\" \"${project_path}/node_modules/ts-node/dist/bin.js\" --files --transpile-only \"${file}\"",
+					"shell_cmd": ["\"cd ${file_path} && npx ts-node --files ${file_name}\""],
 				},
 				{
 					"name": "prettier",
