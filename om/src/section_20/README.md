@@ -673,3 +673,4 @@ const person: Person = {
 
 console.log(person)
 ```
+
