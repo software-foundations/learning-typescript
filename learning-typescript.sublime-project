@@ -3,29 +3,14 @@
 	[
 		{
 			"file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
-			"name": "Console",						
+			"name": "Console",
 			"variants": [
 				{
-					"name": "Nodemon",
-					"shell_cmd": "\"nodemon\" \"$file\"",
-				},
-				{
-					"name": "Node",
-					"shell_cmd": "\"node\" \"$file\"",
-				},
-				{
 					"name": "TypeScript",
-					"shell_cmd": "\"${project_path}/node_modules/.bin/tsc\" \"${file}\" && node ${file_base_name}.js && rm ${file_base_name}.js",
-				},
-				{										
-					"name": "ts-node",
-					"shell_cmd": ["\"cd ${file_path} && npx ts-node --files ${file_name}\""],
-				},
-				{
-					"name": "prettier",
-					"shell_cmd": "prettier \"$file\" > .temp_file.ts && cat .temp_file.ts > \"$file\" && rm .temp_file.ts",					
+					"shell_cmd": "./node ./npx ./ts-node --files ${file}"					
 				}
 			],
+			"working_dir": "/home/bruno/.nvm/versions/node/v18.12.1/bin/"
 		},
 
 		{
@@ -41,25 +26,29 @@
 						"direction": "right",
 					}
 				]
-			],						
+			],
 			"target": "terminus_open",
 			"timeit": true,
 			"title": "Terminal",
+			"working_dir": "$file_path",
 			"variants":
 			[
 				{
 					// https://github.com/TypeStrong/ts-node/issues/497
 					// https://www.npmjs.com/package/ts-node#usage
-					"name": "TypeScript - ts-node",
-					"shell_cmd": "\"npx\" \"${project_path}/node_modules/ts-node/dist/bin.js\" --files --transpile-only \"${file}\"",
+					"name": "TypeScript",
+					"shell_cmd": "./node ./npx ./ts-node --files ${file}",
+					"working_dir": "/home/bruno/.nvm/versions/node/v18.12.1/bin/"
 				},
+
+				/*
 				{
 					"name": "eslint",
 					"shell_cmd": "\"${project_path}node_modules/eslint/bin/eslint.js\" \"${file}\"",
 				},
 				{
 					"name": "TypeScript - Compile, Run, and rm .js",
-					"shell_cmd": "\"${project_path}/node_modules/.bin/tsc\" \"${file}\" && node ${file_base_name}.js && rm ${file_base_name}.js",
+					"shell_cmd": "\"${project_path}/om/node_modules/.bin/tsc\" \"${file}\" && node ${file_base_name}.js && rm ${file_base_name}.js",
 				},
 				{
 					"name": "TypeScript - Compile, and Run",
@@ -70,32 +59,13 @@
 					"shell_cmd": "\"${project_path}/node_modules/.bin/tsc\" \"${file}\" && node ${file_base_name}.js",
 				},
 				{
-					"name": "Node",
-					"shell_cmd": "\"node\" \"${file}\"",
-				},
-				{
-					"name": "Nodemon",
-					"shell_cmd": "\"nodemon\" \"$file\"",
-				},
-				{
-					"name": "chromium",
-					"shell_cmd": "chromium \"$file\"",
-					"auto_close": true,
-				},
-				{
 					"name": "prettier",
 					"shell_cmd": "prettier \"$file\" > .temp_file.ts && cat .temp_file.ts > \"$file\" && rm .temp_file.ts",
 					"auto_close": true,
 				}
-			],
-			"working_dir": "$file_path",
-		},
-		{
-			"file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
-			"name": "Anaconda Python Builder",
-			"selector": "source.python",
-			"shell_cmd": "\"/home/bruno/Documents/dev/numerical-methods-web/venv-numerical-methods/bin/python\" -u \"$file\""
-		},
+				*/
+			],			
+		}
 	],
 
 

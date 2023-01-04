@@ -26,6 +26,7 @@
   "dependencies": {
     "@types/node": "^18.11.16",
     "@types/validator": "^13.7.10",
+    "npx": "^10.2.2",
     "validator": "^13.7.0",
     "webpack": "^5.75.0"
   }
